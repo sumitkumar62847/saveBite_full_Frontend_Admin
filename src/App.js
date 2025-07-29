@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router,Routes, Route } from'react-router-dom';
+import Home from './components/Home';
 import './App.css';
+import Login from './components/Login';
+import EmailVerify from './components/EmailVerify';
+import RestRegister from './components/RestRegister';
+import Address from './components/Address';
+import MapComponent from './components/MapAddress';
+import Profile from './components/profile';
+import AddAds from './components/AddAds';
+import AdditemForm from './components/AdditemForm';
 
-function App() {
+
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route path='/profile' element={<Profile></Profile>}/>
+        <Route path='/additem' element={<AdditemForm></AdditemForm>}/>
+        <Route path='/addAds' element={<AddAds></AddAds>}/>
+        <Route exact path='/login' element={<Login />} />
+        <Route path='/verify' element={<EmailVerify></EmailVerify>}/>
+        <Route path='/restregister' element={<RestRegister></RestRegister>}/>
+        <Route path='/address' element={<Address></Address>}/>
+        <Route path='/mapaddress' element={<MapComponent></MapComponent>}/>
+      </Routes>
+    </Router>
   );
 }
 
