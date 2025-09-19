@@ -18,6 +18,7 @@ function App(){
         <Route exact path="/" element={<Home/>}/>
         <Route path='/profile' element={<Profile></Profile>}/>
         <Route path='/additem' element={<AdditemForm></AdditemForm>}/>
+        <Route path='/edit' element={<AdditemForm edit={true}></AdditemForm>}/>
         <Route path='/addAds' element={<AddAds></AddAds>}/>
         <Route exact path='/login' element={<Login />} />
         <Route path='/verify' element={<EmailVerify></EmailVerify>}/>

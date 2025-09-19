@@ -24,7 +24,6 @@ export const getitems = createAsyncThunk('items/getItems',
             throw new Error(err.message);
         }
     }
-
 );
 export const itemLive = createAsyncThunk('items/itemlive',
     async (data)=>{
@@ -114,5 +113,6 @@ const itemDetail = createSlice({
             })
     }
 })
+
 
 export default itemDetail.reducer;

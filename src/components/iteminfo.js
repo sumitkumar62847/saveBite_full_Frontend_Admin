@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 import { deleteitem, itemLive } from '../Slices/ItemUpload';
 import { getitems } from '../Slices/ItemUpload.js';
 import DealTime from './DealTime.js';
+import { useNavigate } from 'react-router-dom';
+import { editItemId, getEditItem } from '../Slices/ItemEdit.js';
+
 
 const initialState = {
     hours:'',
@@ -17,7 +20,7 @@ function Iteminfo({item}) {
     const liveuntiltime = new Date(item.LiveUntil);
     let userid = localStorage.getItem('idtity');
     const liveform = useRef(null);
-
+    const navigate = useNavigate();
 
     function livehandle(e){
         e.preventDefault();
@@ -36,6 +39,13 @@ function Iteminfo({item}) {
         e.preventDefault();
         setTime({...time, [e.target.name]:e.target.value})
       }
+
+      function editHandle(e){
+        e.preventDefault();
+        dispatch(editItemId(item._id));
+        dispatch(getEditItem({itemid:item._id}));
+        navigate('/edit');
+      }
   return (
     <div key={item._id} className='relative w-[18vw] h-[26vw] bg-slate-100 flex flex-col border items-center'>
         <img src={item.imageUrl[0]} alt='' className='w-full h-[50%] bg-white '></img>
@@ -45,6 +55,7 @@ function Iteminfo({item}) {
             <DealTime liveTime={liveuntiltime}></DealTime>
         </p>
         <div>
+            <button disabled={item.isLiveed} className='absolute top-2 right-2 w-[60px] h-[30px] text-black bg-green-200 rounded-md hover:bg-green-300 disabled:bg-slate-400' onClick={editHandle}>Edit</button>
             <button onClick={livehandle} disabled={item.isLiveed}
                 className='w-[100px] h-[40px] text-white bg-green-500 rounded-md hover:bg-green-600 m-2 disabled:bg-slate-400'>Live</button>
             <button  disabled={item.isLiveed} onClick={()=> {
@@ -52,7 +63,6 @@ function Iteminfo({item}) {
                 setTimeout(()=>{ dispatch(getitems({userid}));},500)
             }} 
             className='w-[100px] h-[40px] text-white bg-red-400 rounded-md hover:bg-red-500 m-2 disabled:bg-slate-400'>Delete</button>
-            <button disabled={item.isLiveed} className='absolute top-2 right-2 w-[60px] h-[30px] text-black bg-green-200 rounded-md hover:bg-green-300 disabled:bg-slate-400'>Edit</button>
         </div>
         <p>Status:</p>
         <div>
