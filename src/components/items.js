@@ -1,23 +1,37 @@
-import React from 'react'
-import Additem from './Additem'
-import { useSelector } from 'react-redux';
-import Iteminfo from './iteminfo.js';
+import React from "react";
+import Additem from "./Additem";
+import Iteminfo from "./iteminfo.js";
 
-
-
-
-function Items() {
-  
-  const items = useSelector(state => state.items.items);
- 
+function Items({ items, ml }) {
   return (
-    <div className='w-auto h-auto  gap-4 m-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5'>
-        {items && items.map(item => (
-          <Iteminfo item={item} key={item._id} ></Iteminfo>
-      ))}
-        <Additem></Additem>
+    <div
+      className="
+        grid gap-6
+        grid-cols-2
+        sm:grid-cols-3
+        md:grid-cols-4
+        xl:grid-cols-5
+      "
+    >
+      {items && items.length > 0 ? (
+        items.map((item) => (
+          <Iteminfo item={item} key={item._id} />
+        ))
+      ) : (
+        <div className="col-span-full flex flex-col items-center justify-center py-20">
+          <span className="text-6xl mb-4">📦</span>
+          <p className="text-lg font-semibold text-gray-700">
+            No items added yet
+          </p>
+          <p className="text-sm text-gray-500">
+            Start by adding your first food item
+          </p>
+        </div>
+      )}
+
+      {!ml && <Additem />}
     </div>
-  )
+  );
 }
 
 export default Items;

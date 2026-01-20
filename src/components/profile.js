@@ -31,7 +31,7 @@ function Profile() {
     const navigate = useNavigate();
   return (
     <>
-      <div className='bg-green-200 w-full min-h-[100vh]'>
+      <div className='bg-[rgb(253,255,253)] w-full min-h-[100vh]'>
           <Header search={false}></Header>
           <button onClick={()=>{navigate(-1)}} className='px-4 py-2 text-white text-2xl bg-green-600 hover:bg-green-800 rounded-xl m-3 absolute'>{'<-'}</button>
           <div className='w-full h-auto  flex justify-center'>

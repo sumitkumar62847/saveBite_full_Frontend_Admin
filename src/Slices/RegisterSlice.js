@@ -6,9 +6,12 @@ const NewUser = {
     userid: "",
     isRegistered: false,
     isEmail: false,
+    isprediction:false,
+    predictedData: {},
+    isLoader:false,
 }
 
-const Api = 'http://localhost:8088'
+const Api = 'https://savebite-full-version-server.onrender.com'
 
 export const getUser = createAsyncThunk('admin/getUser',
     async () => {
@@ -26,6 +29,19 @@ export const getUser = createAsyncThunk('admin/getUser',
         }
     }
 );
+
+export const prediction = createAsyncThunk('admin/prediction',
+    async (data) => {
+        try {
+            console.log(data);
+            const response = await axios.post(`${Api}/prediction`,data);
+            return response.data;
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
+);
+
 
 export const createUser = createAsyncThunk('admin/createUser',
     async (userData) => {
@@ -79,11 +95,24 @@ export const emailVerification = createAsyncThunk('admin/emailVerification',
 const newAdminSlice = createSlice({
     name: 'admin',
     initialState: NewUser,
-    reducers: {},
+    reducers: {
+        setMlItems:(state)=>{
+            state.predictedData = {};
+            state.isprediction = false;
+        }
+    },
     extraReducers: (buider)=>{
         buider
             .addCase(getUser.fulfilled,(state, action)=>{
                 state.userinfo = action.payload;
+            })
+            .addCase(prediction.pending, (state)=>{
+                state.isLoader = true;
+            })
+            .addCase(prediction.fulfilled, (state, action)=>{
+                state.isprediction = true;
+                state.isLoader = false;
+                state.predictedData = action.payload;
             })
             .addCase(createUser.fulfilled, (state,action)=>{
                 localStorage.setItem('idtity', action.payload.userid);
@@ -104,5 +133,7 @@ const newAdminSlice = createSlice({
             })
     },
 })
+
+export const {setMlItems} = newAdminSlice.actions;
 
 export default newAdminSlice.reducer;

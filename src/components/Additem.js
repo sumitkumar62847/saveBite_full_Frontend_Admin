@@ -1,18 +1,56 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Additem() {
   const navigate = useNavigate();
-  function clickhander(e){
+
+  function clickhander(e) {
     e.stopPropagation();
-    navigate('/additem');
+    navigate("/additem");
   }
+
   return (
-    <div onClick={clickhander} className='w-[17vw] group h-[19vw] relative border border-dashed border-[rgb(113,113,113)] m-4 hover:bg-[rgb(232,231,231)] cursor-pointer'>
-        <div className='w-[50%] h-[1px] absolute top-[49%] left-[25%] border border-dashed border-[rgb(131,131,131)] group-hover:border-[rgb(120,120,120)] '></div>
-        <div className='w-[1px] h-[50%] absolute top-[25%] left-[49%] border border-dashed border-[rgb(131,131,131)] group-hover:border-[rgb(120,120,120)]'></div>
+    <div
+      onClick={clickhander}
+      className="
+        group
+        flex flex-col items-center justify-center
+        rounded-2xl
+        border-2 border-dashed border-green-300
+        bg-green-50/40
+        cursor-pointer
+        transition-all duration-300
+        hover:border-green-500
+        hover:bg-green-100
+        hover:shadow-md
+        aspect-[3/4]
+      "
+    >
+      
+      <div
+        className="
+          w-16 h-16
+          rounded-full
+          flex items-center justify-center
+          border-2 border-dashed border-green-400
+          text-green-600
+          text-4xl font-bold
+          group-hover:scale-110
+          transition
+        "
+      >
+        +
+      </div>
+
+      <p className="mt-4 text-sm font-semibold text-green-700">
+        Add New Item
+      </p>
+
+      <p className="text-xs text-green-600 opacity-80 mt-1">
+        Create food listing
+      </p>
     </div>
-  )
+  );
 }
 
 export default Additem;

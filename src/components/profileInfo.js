@@ -29,7 +29,7 @@ function ProfileInfo() {
 
 
   return (
-    <div className='w-[850px]  bg-white m-4 border'>
+    <div className='w-[850px]  bg-white m-4 border rounded-lg shadow-lg'>
         <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mt-10 mx-auto my-4'>
             <form name='personalInfo' className='w-full my-5'>
                 <label className='text-slate-950 text-2xl'>Personal Information</label>
@@ -55,13 +55,23 @@ function ProfileInfo() {
             <button className='w-[100px] h-[50px] text-blue-500 rounded-xl font-semibold border' >Edit</button>
         </div>
         <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mx-auto my-5 pb-5'>
-            <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on 
-                your updated email address (or mobile number).
-                When will my account be updated with the new email address (or mobile number)?
-                It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.
-                What happens to my existing account when I update my email address (or mobile number)?
-                Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. 
-                You'll continue seeing your Order history, saved information and personal details.</p>
+            <div className="mt-6 text-sm text-gray-600 leading-relaxed">
+                <h3 className="mb-2 font-semibold text-gray-800">
+                    About Contact Information Updates
+                </h3>
+
+                <p>
+                    Your email address or mobile number is used for login and important
+                    account-related communication.
+                </p>
+
+                <ul className="mt-3 list-disc pl-5 space-y-1">
+                    <li>You will receive a verification code on the updated contact detail</li>
+                    <li>Your account is updated immediately after verification</li>
+                    <li>Your order history and saved information remain unchanged</li>
+                </ul>
+            </div>
+
         </div>
     </div>
   )

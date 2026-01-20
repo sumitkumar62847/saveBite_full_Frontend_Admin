@@ -15,7 +15,8 @@ const initialState = {
 
 
 function Iteminfo({item}) {
-    const [time, setTime] = useState(initialState);
+    const [hours, setHours] = useState(initialState);
+    const [minutes, setMinutes] = useState(initialState);
     const dispatch = useDispatch();
     const liveuntiltime = new Date(item.LiveUntil);
     let userid = localStorage.getItem('idtity');
@@ -29,16 +30,16 @@ function Iteminfo({item}) {
     
       function submitHandler(e,id){
           e.preventDefault();
-          let totalTime =  (time.hours * 60) + (time.minutes * 1);
+          let totalTime =  (hours * 60) + (minutes * 1);
           dispatch(itemLive({id,ltime:totalTime}))
           setTimeout(()=>{ dispatch(getitems({userid}));},500)
           liveform.current.style.display =  liveform.current.style.display === 'none'? 'block':'none';
         }
     
-      function changeHandler(e){
-        e.preventDefault();
-        setTime({...time, [e.target.name]:e.target.value})
-      }
+      // function changeHandler(e){
+      //   e.preventDefault();
+      //   setTime({...time, [e.target.name]:e.target.value})
+      // }
 
       function editHandle(e){
         e.preventDefault();
@@ -67,24 +68,65 @@ function Iteminfo({item}) {
         <p>Status:</p>
         <div>
             <p>Available: <label>{item.quantity}</label></p>
-            <p>Order: <label>{item.order}</label></p>
-            <p>Sold: <label>{item.sold}</label></p>
         </div>
-        <div  style={{display:'none'}} ref={liveform} className='w-[800px] h-[500px] border fixed top-[20%] left-[25%] z-50 '>
-            <form className='w-full h-full bg-green-100 flex flex-col justify-between items-center p-4 ' onSubmit={(e)=>submitHandler(e,item._id)}>
-            <h1 className='text-black'>Set Time to Live</h1>
-            <div>
-                <input required type='number' max='5' placeholder='00' name='hours' onChange={changeHandler}
-                className='w-[40px] h-[30px] border outline-none' /><label>hours</label>
-                <input required type='number' max='59' placeholder='00' name='minutes'  onChange={changeHandler}
-                className='w-[40px] h-[30px] border outline-none ml-2' /><label>Minutes</label>
+
+
+
+
+        <div style={{display:'none'}} ref={liveform} className="fixed z-50 flex items-center justify-center bg-black/50">
+          <div className="w-[380px] rounded-2xl bg-white p-6 shadow-2xl">
+            
+           
+            <h2 className="mb-6 text-center text-xl font-semibold text-gray-800">
+              Set Time to Live
+            </h2>
+
+            
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <input
+                type="number"
+                min="0"
+                max="3"
+                value={hours}
+                onChange={(e) => setHours(e.target.value)}
+                className="w-20 rounded-lg border text-center text-3xl font-bold outline-none focus:border-green-500"
+              />
+              <span className="text-3xl font-bold">:</span>
+              <input
+                type="number"
+                min="0"
+                max="59"
+                value={minutes}
+                onChange={(e) => setMinutes(e.target.value)}
+                className="w-20 rounded-lg border text-center text-3xl font-bold outline-none focus:border-green-500"
+              />
             </div>
-            <div className='w-full'>
-                <button  type='submit' className='text-2xl border w-full text-green-500 h-[50px] bg-white '>Submit</button>
-                <button onClick={livehandle} className='text-2xl border w-full text-red-500 h-[50px] bg-white '>Cencel</button>
+
+            <p className="mb-6 text-center text-sm text-gray-500">
+              Hours : Minutes
+            </p>
+
+            
+            <div className="flex gap-3">
+              <button
+                onClick={(e)=>submitHandler(e,item._id)}
+                className="flex-1 rounded-xl bg-green-500 py-2 text-white font-semibold hover:bg-green-600"
+              >
+                Start Timer
+              </button>
+
+              <button
+                onClick={livehandle}
+                className="flex-1 rounded-xl border border-red-400 py-2 text-red-500 font-semibold hover:bg-red-50"
+              >
+                Cancel
+              </button>
             </div>
-            </form>
+          </div>
         </div>
+
+
+
     </div>
   )
 }

@@ -26,7 +26,7 @@ function RestaurantInfo() {
     setAddress({...address, [e.target.name]:e.target.value});
   }
   return (
-    <div className='w-[850px]  bg-white m-4 border'>
+    <div className='w-[850px]  bg-white m-4 border rounded-lg shadow-lg'>
         <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mt-10 mx-auto my-4'>
         <form className='w-full h-auto flex flex-col items-center gap-10 '> 
         <label className='text-slate-950 text-2xl'>Restaurant Information</label>
@@ -42,13 +42,22 @@ function RestaurantInfo() {
         </form>
         </div>
         <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mx-auto my-5 pb-5 pt-5'>
-            <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on 
-                your updated email address (or mobile number).
-                When will my account be updated with the new email address (or mobile number)?
-                It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.
-                What happens to my existing account when I update my email address (or mobile number)?
-                Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. 
-                You'll continue seeing your Order history, saved information and personal details.</p>
+            <p>
+              <h3 className="mb-2 font-semibold text-gray-800">
+                About Restaurant Information
+              </h3>
+
+              <p>
+                Your restaurant details help customers recognize your business and allow
+                SaveBite to manage orders and communication smoothly.
+              </p>
+
+              <ul className="mt-3 list-disc pl-5 space-y-1">
+                <li>Restaurant name and owner details may be shown to customers</li>
+                <li>Contact numbers are used for order-related communication</li>
+                <li>Updating information does not affect existing orders</li>
+              </ul>
+            </p>
         </div>
     </div>
   )

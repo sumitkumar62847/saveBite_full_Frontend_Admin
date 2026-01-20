@@ -13,7 +13,7 @@ const newRest = {
 }
 
 
-const Api = 'http://localhost:8088';
+const Api = 'https://savebite-full-version-server.onrender.com';
 
 
 export const getRestData = createAsyncThunk('admin/getRestData',

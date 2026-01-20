@@ -42,7 +42,7 @@ function AddressInfo() {
     }
 
   return (
-    <div className='w-[850px]  bg-white m-4 border'>
+    <div className='w-[850px]  bg-white m-4 border rounded-lg shadow-lg'>
         <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mt-10 mx-auto my-4'>
              <form name='personalInfo' className='w-full my-2 h-auto'>
                 <h1 className='text-slate-950 text-[30px] text-center mb-4'>Address Information</h1>
@@ -69,13 +69,23 @@ function AddressInfo() {
              </form>
         </div>
         <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mx-auto my-5 pb-5 pt-5'>
-            <p>Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on 
-                your updated email address (or mobile number).
-                When will my account be updated with the new email address (or mobile number)?
-                It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.
-                What happens to my existing account when I update my email address (or mobile number)?
-                Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. 
-                You'll continue seeing your Order history, saved information and personal details.</p>
+            <div className="mt-6 text-sm text-gray-600 leading-relaxed">
+                <h3 className="mb-2 font-semibold text-gray-800">
+                    About Address Information
+                </h3>
+
+                <p>
+                    Your address details are used to ensure accurate delivery and service
+                    availability.
+                </p>
+
+                <ul className="mt-3 list-disc pl-5 space-y-1">
+                    <li>Used for order delivery and location verification</li>
+                    <li>Landmarks help delivery partners reach you faster</li>
+                    <li>Updating your address does not affect past orders</li>
+                </ul>
+            </div>
+
         </div>
     </div>
   )

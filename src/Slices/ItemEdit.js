@@ -8,7 +8,7 @@ const item_details = {
     isUploaded: false,
 }
 
-const Api = 'http://localhost:8088'
+const Api = 'https://savebite-full-version-server.onrender.com'
 
 
 export const getEditItem = createAsyncThunk('itemedit/editItem',

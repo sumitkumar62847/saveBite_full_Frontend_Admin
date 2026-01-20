@@ -16,34 +16,34 @@ function Home() {
 
   useEffect(()=>{
     let userid = localStorage.getItem('idtity');
-    dispatch(getitems({userid}));
-    dispatch(getRestData())
-    
-    dispatch(getUser())
-    
-  },[dispatch]);
 
-
-
-  useEffect(()=>{
-    let stagelevel = localStorage.getItem('stage');
-    let userid = localStorage.getItem('idtity');
-    if(!stagelevel && !userid){
-      navigate('/login');
-    }else if(stagelevel === 'first'){
-      navigate('/verify');
-    }else if(stagelevel === 'second'){
-      navigate('/restregister'); 
-    }else if(stagelevel === 'thrid'){
-      navigate('/address');
-    }else if(stagelevel === 'fourth'){
-      navigate('/mapaddress');
-    }else if(stagelevel === 'fifth'){
-      navigate('/');
-    }else{
+    if(!userid){
       navigate('/login');
     }
-  },[navigate, dispatch]);
+
+    dispatch(getitems({userid}));
+    dispatch(getRestData())
+    dispatch(getUser())
+    let stagelevel = localStorage.getItem('stage');
+    
+    switch(stagelevel){
+      case 'first':
+        navigate('/verify');
+        break;
+      case 'second':
+        navigate('/restregister');
+        break;
+      case 'thrid':
+        navigate('/address');
+        break;
+      case 'fourth':
+        navigate('/mapaddress');
+        break;
+      default:
+        break;
+    }
+    
+  },[dispatch,navigate]);
 
   return (
     <>

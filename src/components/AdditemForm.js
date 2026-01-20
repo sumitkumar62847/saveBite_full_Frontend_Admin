@@ -9,6 +9,7 @@ const initialState ={
     foodtype: "",
     suitableFor: [],
     item_name: "",
+    item_id:"",
     price: "",
     discount: "",
     amount:"",
@@ -97,19 +98,15 @@ function AdditemForm({edit}) {
         if(edit && editItemId){
             setFormData(editItem)
         }
-    },[dispatch,edit,editItemId,navigate, editItem]);
+    },[edit,editItemId, editItem]);
 
     useEffect(()=>{
-        if(isUploaded && !isLoader){
+        if( (isUploaded && !isLoader) || (isUploadededit && !isLoaderedit) ){
             navigate('/')
         }
-    },[isUploaded, navigate, isLoader])
+    },[isUploaded, navigate, isLoader, isUploadededit, isLoaderedit])
 
-     useEffect(()=>{
-        if(isUploadededit && !isLoaderedit){
-            navigate('/')
-        }
-    },[isUploadededit, navigate, isLoaderedit])
+
 
     function submitHandler(e){
         e.preventDefault();
@@ -261,6 +258,9 @@ function AdditemForm({edit}) {
                     </div>
                     <label><strong>Item Name</strong></label>
                     <input type='text' required name='item_name' value={formData.item_name} placeholder='Item Name' onChange={formHandler}
+                    className=' my-2 w-full p-2 rounded-md border border-slate-400 focus:outline-none focus:border-slate-600'/>
+                    <label><strong>Item ID</strong></label>
+                    <input type='number' maxLength={4} required name='item_id' value={formData.item_id} placeholder='Item Id' onChange={formHandler}
                     className=' my-2 w-full p-2 rounded-md border border-slate-400 focus:outline-none focus:border-slate-600'/>
                     <label><strong>Price On Menu: </strong></label>
                     <input type='number' required name='price' value={formData.price} placeholder='Price' onChange={formHandler}
