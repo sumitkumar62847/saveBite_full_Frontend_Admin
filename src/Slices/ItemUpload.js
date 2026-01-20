@@ -8,7 +8,8 @@ const item_details = {
     isLived: false,
 }
 
-const Api = 'https://savebite-full-version-server.onrender.com'
+const Api = process.env.REACT_APP_API_URL;
+
 
 
 export const getitems = createAsyncThunk('items/getItems',

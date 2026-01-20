@@ -10,8 +10,8 @@ const NewUser = {
     predictedData: {},
     isLoader:false,
 }
+const Api = process.env.REACT_APP_API_URL;
 
-const Api = 'https://savebite-full-version-server.onrender.com'
 
 export const getUser = createAsyncThunk('admin/getUser',
     async () => {
