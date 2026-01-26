@@ -56,8 +56,10 @@ function Login(){
     <div className='w-full h-[100vh] bg-white flex justify-center items-center '>
         <div className='w-[80%] h-[80%] md:w-[50%] lg:w-[40%] bg-green-50  rounded-xl flex flex-col items-center justify-around'>
             <div className='w-full h-auto p-4 flex flex-col justify-center items-center'>
-                <h1 className='text-3xl text-green-500 py-4'>Register your New Account</h1>
-                <p className='text-slate-400'>something abount web site</p> 
+                <h1 className='text-xl sm:text-3xl text-green-500 py-4'>Register your New Account</h1>
+                <p className="text-sm sm:text-base text-slate-400 mt-2 px-10">
+                    A restaurant and cloud kitchen platform for managing food items, orders, and smart discovery.
+                </p>
             </div>
             <div className='w-full h-auto flex justify-center items-center gap-4'>
                 {!isOpt && <form className='w-full h-auto flex flex-col items-center gap-10 ' onSubmit={handleOpt}>

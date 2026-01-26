@@ -13,6 +13,7 @@ function Additem() {
     <div
       onClick={clickhander}
       className="
+        p-10
         group
         flex flex-col items-center justify-center
         rounded-2xl
@@ -23,7 +24,6 @@ function Additem() {
         hover:border-green-500
         hover:bg-green-100
         hover:shadow-md
-        aspect-[3/4]
       "
     >
       

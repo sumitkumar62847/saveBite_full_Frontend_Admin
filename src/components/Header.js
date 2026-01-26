@@ -20,18 +20,19 @@ function Header() {
   }
 
   return (
-    <header className="w-full h-[90px]">
+    <header className="w-full sm:h-[90px] h-[140px] ">
       <nav
         className="
         fixed top-0 z-50
-        w-full h-[90px]
-        px-[3%]
-        flex items-center justify-between
+        w-full
+        p-4
+        flex flex-col items-center justify-between
         bg-white/90 backdrop-blur-xl
         border-b border-green-200
         shadow-md
       "
       >
+        <main className="w-full flex items-center justify-between ">
         <div
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => navigate("/")}
@@ -51,7 +52,7 @@ function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="sm:flex items-center gap-4 hidden  ">
           <button
             onClick={predictionClick}
             className="
@@ -107,7 +108,37 @@ function Header() {
             </p>
           </div>
         </div>
+        </main>
+         <div className="sm:hidden items-center gap-4 flex pt-2  ">
+          <button
+            onClick={predictionClick}
+            className="
+            px-6 py-2 rounded-xl
+            font-semibold text-sm
+            bg-gradient-to-r from-green-400 to-green-600
+            text-white shadow
+            hover:scale-105 transition
+          "
+          >
+            📊 Prediction
+          </button>
+
+          <button
+            onClick={() => navigate("/addAds")}
+            className="
+            px-6 py-2 rounded-xl
+            font-semibold text-sm
+            border border-green-400
+            text-green-600
+            hover:bg-green-50
+            transition
+          "
+          >
+            ➕ Add Ads
+          </button>
+        </div>
       </nav>
+      
     </header>
   );
 }

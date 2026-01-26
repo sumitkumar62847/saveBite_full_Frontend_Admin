@@ -9,6 +9,8 @@ const item_details = {
 }
 
 const Api = process.env.REACT_APP_API_URL;
+// const Api = 'http://localhost:8088';
+
 
 
 export const getEditItem = createAsyncThunk('itemedit/editItem',
@@ -29,7 +31,7 @@ export const getEditItem = createAsyncThunk('itemedit/editItem',
 export const UpdataItem = createAsyncThunk('itemedit/edititem',
     async (data) =>{
         console.log(data);
-        try{
+        try{ 
             const response = await axios.patch(`${Api}/updataitem`,{data});
             return response.data;
         }catch(err){

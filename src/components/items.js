@@ -2,15 +2,16 @@ import React from "react";
 import Additem from "./Additem";
 import Iteminfo from "./iteminfo.js";
 
-function Items({ items, ml }) {
+function Items({ items }) {
   return (
     <div
       className="
-        grid gap-6
+        grid gap-4
         grid-cols-2
         sm:grid-cols-3
         md:grid-cols-4
         xl:grid-cols-5
+        xl:gap-8
       "
     >
       {items && items.length > 0 ? (
@@ -28,8 +29,17 @@ function Items({ items, ml }) {
           </p>
         </div>
       )}
-
-      {!ml && <Additem />}
+      {items && items.length > 0 ? (
+          <div className="flex flex-col items-center justify-center py-5">
+            <Additem />
+         </div>
+      ) : (
+          <div className="col-span-full flex flex-col items-center justify-center py-5">
+            <Additem />
+          </div>
+      )}
+      
+      
     </div>
   );
 }

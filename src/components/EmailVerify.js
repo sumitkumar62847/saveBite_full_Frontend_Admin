@@ -50,7 +50,7 @@ function EmailVerify() {
             alert('please fill correct OTP');
             return;
         }else{
-            console.log('scwscwc');
+            // console.log('scwscwc');
             dispatch(emailVerification(emaildata));
         }
     }
@@ -58,15 +58,17 @@ function EmailVerify() {
     function handlechange(e){
         setEmaildata(emaildata.userid = userid);
         setEmaildata({...emaildata,[e.target.name]:e.target.value}); 
-        console.log(emaildata);
+        // console.log(emaildata);
     }
 
   return (
     <div className='w-full h-[100vh] bg-white flex justify-center items-center '>
-        <div className='w-[80%] h-[80%] md:w-[50%] lg:w-[40%] bg-green-50  rounded-xl flex flex-col items-center justify-around'>
+        <div className='w-[90%] h-[80%] sm:w-[70%] md:w-[50%] lg:w-[40%] bg-green-50  rounded-xl flex flex-col items-center justify-around'>
             <div className='w-full h-auto p-4 flex flex-col justify-center items-center'>
                 <h1 className='text-3xl text-green-500 py-4'>Email Varification</h1>
-                <p className='text-slate-400'>something abount web site</p>
+                <p className="text-sm sm:text-base text-slate-400 mt-2 px-10">
+                    A full-stack restaurant and cloud kitchen platform with smart search and sales insights.
+                </p>
             </div>
             <div className='w-full h-auto flex justify-center items-center gap-4'>
                 {!isOpt && <form className='w-full h-auto flex flex-col items-center gap-10 ' onSubmit={handleEmail}>

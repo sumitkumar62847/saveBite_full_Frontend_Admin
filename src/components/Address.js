@@ -51,7 +51,7 @@ function Address() {
     }
   return (
     <div className='w-full h-[100vh] bg-white flex justify-center items-center '>
-        <div className='w-[80%] h-[80%] md:w-[60%] lg:w-[50%] bg-green-50  rounded-xl flex flex-col items-center justify-around'>
+        <div className='w-[95%] h-[80%] sm:w-[80%] md:w-[60%] lg:w-[50%] bg-green-50  rounded-xl flex flex-col items-center justify-around'>
             <div className='w-full h-auto p-4 flex flex-col justify-center items-center'>
                 <h1 className='text-3xl text-green-500 py-4'>Address Informantion</h1>
                 <p className='text-slate-400'>something abount web site</p>

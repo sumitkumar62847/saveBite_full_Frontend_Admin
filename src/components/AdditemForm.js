@@ -214,7 +214,7 @@ function AdditemForm({edit}) {
 
   return (
     <div className='w-full h-auto flex justify-center'>
-        <div className='w-[50%] bg-white border-2 p-4 my-4 h-auto'>
+        <div className='w-[90%] sm:w-[70%] md:w-[50%] lg:w-[40%] bg-white border-2 p-4 my-4 h-auto'>
             <h1 className='text-center text-3xl text-slate-700 py-4'>Add New Item</h1>
             <form className='w-full h-auto flex flex-col gap-4' onSubmit={submitHandler}>
                 <div className='w-full h-auto p-2'> 
@@ -291,10 +291,10 @@ function AdditemForm({edit}) {
                     <textarea name='description' value={formData.description} required placeholder='Description ' onChange={formHandler}
                         className='w-full my-2 p-2 rounded-md border border-slate-400 focus:outline-none focus:border-slate-600'/>
                     
-                   {!edit && <div className='w-full flex gap-2 my-2'>
+                   {!edit && <div className='w-full flex flex-col gap-2 my-2'>
                         <label><strong>Image</strong></label>
-                        <input type='file' required multiple  className='w-[30%] p-2 rounded-md border border-slate-400 focus:outline-none focus:border-slate-600' onChange={changeHandle}/>
-                        <div className='w-full my-2 h-auto flex items-center justify-start gap-2 '>
+                        <input type='file' required multiple  className=' p-2 rounded-md border border-slate-400 focus:outline-none focus:border-slate-600' onChange={changeHandle}/>
+                        <div className=' my-2 h-auto flex items-center justify-start gap-2 '>
                             {previews.map((view, index) =>(
                                     <img src={view} key={index} alt='preview' className='w-[80px] h-[60px] object-cover'/>
                             ))}

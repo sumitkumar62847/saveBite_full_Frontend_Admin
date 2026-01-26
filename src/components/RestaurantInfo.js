@@ -26,40 +26,77 @@ function RestaurantInfo() {
     setAddress({...address, [e.target.name]:e.target.value});
   }
   return (
-    <div className='w-[850px]  bg-white m-4 border rounded-lg shadow-lg'>
-        <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mt-10 mx-auto my-4'>
-        <form className='w-full h-auto flex flex-col items-center gap-10 '> 
-        <label className='text-slate-950 text-2xl'>Restaurant Information</label>
-            <input type='text' value={address.restname} disabled={true} placeholder='Restaurant Name' name='restname' onChange={changeHandler}
-            className='placeholder:text-lg w-[70%] h-[50px] text-lg bg-slate-100 border-b-2 focus:border-green-500 focus:outline-none  px-4'/>
-            <input type='text' value={address.ownername} disabled={true} placeholder='Owner Name' name='ownername' onChange={changeHandler}
-            className='placeholder:text-lg w-[70%] h-[50px] text-lg bg-slate-100 border-b-2 focus:border-green-500 focus:outline-none  px-4'/>
-            <input type='number' value={address.mobile_no} disabled={true} placeholder='Mobile Number' name='mobile_no' onChange={changeHandler}
-            className='placeholder:text-lg w-[70%] h-[50px] text-lg bg-slate-100 border-b-2 focus:border-green-500 focus:outline-none  px-4'/>
-            <input type='number' value={address.fssai_no} disabled={true} placeholder='Fssai license No. ' name='fssai_no' onChange={changeHandler}
-            className='placeholder:text-lg w-[70%] h-[50px] text-lg bg-slate-100 border-b-2 focus:border-green-500 focus:outline-none  px-4'/>
-            <button className='w-[100px] h-[50px] text-blue-500 rounded-xl font-semibold border' >Edit</button>
-        </form>
-        </div>
-        <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mx-auto my-5 pb-5 pt-5'>
-            <p>
-              <h3 className="mb-2 font-semibold text-gray-800">
-                About Restaurant Information
-              </h3>
+   <div className="w-full lg:max-w-[900px] bg-white border rounded-lg shadow-lg px-4 py-6">
+  <div className="w-full max-w-3xl mx-auto">
+    <form className="flex flex-col gap-6">
+      <h2 className="text-xl sm:text-2xl font-semibold text-center text-gray-900">
+        Restaurant Information
+      </h2>
 
-              <p>
-                Your restaurant details help customers recognize your business and allow
-                SaveBite to manage orders and communication smoothly.
-              </p>
+      <input
+        type="text"
+        value={address.restname}
+        disabled
+        placeholder="Restaurant Name"
+        name="restname"
+        onChange={changeHandler}
+        className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+      />
 
-              <ul className="mt-3 list-disc pl-5 space-y-1">
-                <li>Restaurant name and owner details may be shown to customers</li>
-                <li>Contact numbers are used for order-related communication</li>
-                <li>Updating information does not affect existing orders</li>
-              </ul>
-            </p>
-        </div>
+      <input
+        type="text"
+        value={address.ownername}
+        disabled
+        placeholder="Owner Name"
+        name="ownername"
+        onChange={changeHandler}
+        className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+      />
+
+      <input
+        type="number"
+        value={address.mobile_no}
+        disabled
+        placeholder="Mobile Number"
+        name="mobile_no"
+        onChange={changeHandler}
+        className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+      />
+
+      <input
+        type="number"
+        value={address.fssai_no}
+        disabled
+        placeholder="FSSAI License Number"
+        name="fssai_no"
+        onChange={changeHandler}
+        className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+      />
+
+      <button className="self-start px-6 py-2 border rounded-lg text-blue-500 font-semibold">
+        Edit
+      </button>
+    </form>
+
+    <div className="mt-10 text-sm text-gray-600 leading-relaxed">
+      <h3 className="mb-2 font-semibold text-gray-800">
+        About Restaurant Information
+      </h3>
+
+      <p>
+        Your restaurant details help customers identify your business and allow
+        the platform to manage orders and communication effectively.
+      </p>
+
+      <ul className="mt-3 list-disc pl-5 space-y-1">
+        <li>Visible to customers for transparency</li>
+        <li>Used for order-related communication</li>
+        <li>No impact on existing orders</li>
+      </ul>
     </div>
+  </div>
+</div>
+
   )
 }
 

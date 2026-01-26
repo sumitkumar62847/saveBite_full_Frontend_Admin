@@ -26,30 +26,60 @@ function ShortInfo({toggleProfileItem , showProfileItem}) {
 
     }
   return (
-    <div>
-        <div className='lg:w-[250px] h-[50vh] bg-white m-4 border rounded-lg shadow-lg flex flex-col items-center'>
-            <div className='border-b-2 w-[100%] flex flex-col items-center pb-3'>
-                <div className='lg:w-[80px] md:w-[60px] lg:h-[80px] md:h-[60px] rounded-full bg-slate-400 m-2'>
-                    <img src={userIcon} alt='user-img' className='w-[100%] h-[100%] rounded-full'></img>
-                </div>
-                <h1 className='text-xl text-green-900'>{userinfo.name}</h1>
-            </div>
-            <div ref={perInfoRef} style={{backgroundColor:'white'}}  className='w-[100%] flex justify-start border-b-2 cursor-pointer ' onClick={()=>handertoggle(0)}>
-                <h2 className='text-xl m-3 pl-2 text-slate-600'>Personal Information</h2>
-            </div>
-            <div ref={restInfoRef} style={{backgroundColor:'white'}}  className='w-[100%] flex justify-start border-b-2 cursor-pointer ' onClick={()=>handertoggle(1)}>
-                <h2 className='text-xl m-3 pl-2 text-slate-600'>Restaurant Information</h2>
-            </div>
-            <div ref={addressRef} style={{backgroundColor:'white'}} className='w-[100%] flex justify-start border-b-2 cursor-pointer ' onClick={()=>handertoggle(2)}>
-                <h2 className='text-xl m-3 pl-2 text-slate-600'>Address Information</h2>
-            </div>
-        </div>
-        <div className='lg:w-[250px] bg-white m-4 border rounded-lg flex flex-col items-center'>
-            <div onClick={logoutHandle} className='w-[100%] flex justify-start border-b-2 cursor-pointer hover:bg-slate-100'>
-                <button className='w-full text-xl m-3 text-red-400 text-center'>LogOut</button>
-            </div>
-        </div>
+    <div className="w-full lg:w-[260px] flex flex-col gap-4">
+
+  <div className="bg-white border rounded-lg shadow-lg flex flex-col items-center">
+    
+    <div className="w-full border-b flex flex-col items-center py-4">
+      <div className="w-16 h-16 rounded-full bg-slate-300 overflow-hidden">
+        <img src={userIcon} alt="user" className="w-full h-full object-cover" />
+      </div>
+      <h1 className="mt-2 text-lg font-semibold text-green-900">
+        {userinfo.name}
+      </h1>
     </div>
+
+    <div
+      ref={perInfoRef}
+      onClick={() => handertoggle(0)}
+      className="w-full px-4 py-3 cursor-pointer border-b hover:bg-slate-100 transition"
+    >
+      <h2 className="text-sm sm:text-base text-slate-600">
+        Personal Information
+      </h2>
+    </div>
+
+    <div
+      ref={restInfoRef}
+      onClick={() => handertoggle(1)}
+      className="w-full px-4 py-3 cursor-pointer border-b hover:bg-slate-100 transition"
+    >
+      <h2 className="text-sm sm:text-base text-slate-600">
+        Restaurant Information
+      </h2>
+    </div>
+
+    <div
+      ref={addressRef}
+      onClick={() => handertoggle(2)}
+      className="w-full px-4 py-3 cursor-pointer hover:bg-slate-100 transition"
+    >
+      <h2 className="text-sm sm:text-base text-slate-600">
+        Address Information
+      </h2>
+    </div>
+  </div>
+
+  <div className="bg-white border rounded-lg">
+    <button
+      onClick={logoutHandle}
+      className="w-full py-3 text-red-500 font-semibold hover:bg-red-50 transition"
+    >
+      Log Out
+    </button>
+  </div>
+</div>
+
   )
 }
 

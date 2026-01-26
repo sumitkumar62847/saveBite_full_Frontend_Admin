@@ -42,52 +42,115 @@ function AddressInfo() {
     }
 
   return (
-    <div className='w-[850px]  bg-white m-4 border rounded-lg shadow-lg'>
-        <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mt-10 mx-auto my-4'>
-             <form name='personalInfo' className='w-full my-2 h-auto'>
-                <h1 className='text-slate-950 text-[30px] text-center mb-4'>Address Information</h1>
-                <div className='flex items-center gap-2'>
-                    <input value={address.fullname} disabled={true} type='text' placeholder='Full Name' name='fullname' required onClick={changeHandler} className='my-3 w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                    <input value={address.mobileNo} disabled={true} type='number' placeholder='Mobile Number' name='mobileNo' onClick={changeHandler} className='w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <input value={address.pinCode} disabled={true} type='number' placeholder='PinCode' name='pinCode' required onClick={changeHandler} className='my-3 w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                    <input value={address.locality} disabled={true} type='text' placeholder='Locality' name='locality' onClick={changeHandler} className='w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <textarea value={address.fulladdress} disabled={true} type='textarea' rows={2} maxLength={100} onClick={changeHandler} placeholder='Adress ( Area & Street)' name='fulladdress' required className='my-3 w-[100%] h-[80px]  p-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <input value={address.city} disabled={true} type='text' placeholder='City/District/Town' name='city' required onClick={changeHandler} className='my-3 w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                    <input value={address.state} disabled={true} type='text' placeholder='State' name='state' onClick={changeHandler} className='w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                </div>
-                <div className='flex items-center gap-2'>
-                    <input value={address.landmark} disabled={true} type='text' placeholder='Landmark (Optional)' name='landmark'  onClick={changeHandler} className='my-3 w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                    <input value={address.alt_mobile} disabled={true} type='number' placeholder='Alternate Phone (Optional)' name='alt_mobile' onClick={changeHandler} className='w-[80%] h-[40px]  px-3 bg-slate-100 focus:bg-slate-100 focus:outline-none border-b-2 required focus:border-green-500'/>
-                </div>
-                <button className='w-[100px] h-[50px] text-blue-500 rounded-xl font-semibold border' >Edit</button>
-             </form>
-        </div>
-        <div className='lg:w-[75%] md:w-[80%] sm:w-[90%] h-auto mx-auto my-5 pb-5 pt-5'>
-            <div className="mt-6 text-sm text-gray-600 leading-relaxed">
-                <h3 className="mb-2 font-semibold text-gray-800">
-                    About Address Information
-                </h3>
+    <div className="w-full lg:max-w-[900px] bg-white border rounded-lg shadow-lg px-4 py-6">
+  <div className="w-full max-w-3xl mx-auto">
+    <form className="flex flex-col gap-6">
+      <h2 className="text-xl sm:text-2xl font-semibold text-center text-gray-900">
+        Address Information
+      </h2>
 
-                <p>
-                    Your address details are used to ensure accurate delivery and service
-                    availability.
-                </p>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          value={address.fullname}
+          onClick={changeHandler}
+          disabled
+          type="text"
+          placeholder="Full Name"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+        <input
+          value={address.mobileNo}
+          disabled
+          type="number"
+          placeholder="Mobile Number"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+      </div>
 
-                <ul className="mt-3 list-disc pl-5 space-y-1">
-                    <li>Used for order delivery and location verification</li>
-                    <li>Landmarks help delivery partners reach you faster</li>
-                    <li>Updating your address does not affect past orders</li>
-                </ul>
-            </div>
 
-        </div>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          value={address.pinCode}
+          disabled
+          type="number"
+          placeholder="Pin Code"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+        <input
+          value={address.locality}
+          disabled
+          type="text"
+          placeholder="Locality"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+      </div>
+
+      <textarea
+        value={address.fulladdress}
+        disabled
+        rows={3}
+        placeholder="Area & Street Address"
+        className="w-full p-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none resize-none"
+      />
+
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          value={address.city}
+          disabled
+          type="text"
+          placeholder="City / District"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+        <input
+          value={address.state}
+          disabled
+          type="text"
+          placeholder="State"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-4">
+        <input
+          value={address.landmark}
+          disabled
+          type="text"
+          placeholder="Landmark (Optional)"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+        <input
+          value={address.alt_mobile}
+          disabled
+          type="number"
+          placeholder="Alternate Phone"
+          className="w-full h-11 px-3 bg-slate-100 border-b-2 focus:border-green-500 outline-none"
+        />
+      </div>
+
+      <button className="self-start px-6 py-2 border rounded-lg text-blue-500 font-semibold">
+        Edit
+      </button>
+    </form>
+
+    <div className="mt-10 text-sm text-gray-600 leading-relaxed">
+      <h3 className="mb-2 font-semibold text-gray-800">
+        About Address Information
+      </h3>
+
+      <p>
+        Address details are used to ensure accurate delivery and service
+        availability.
+      </p>
+
+      <ul className="mt-3 list-disc pl-5 space-y-1">
+        <li>Used for delivery and verification</li>
+        <li>Landmarks improve delivery accuracy</li>
+        <li>Past orders remain unaffected</li>
+      </ul>
     </div>
+  </div>
+</div>
+
   )
 }
 

@@ -152,7 +152,8 @@ const MapComponent = () => {
   }
 
   return (
-      <div className="relative w-[50%] h-[80vh] bg-white left-[30%] top-[90px] rounded-2xl overflow-hidden" style={{display:'block'}}>
+    <div className="w-full h-full flex justify-center items-center">
+      <div className="relative  w-[90%] sm:w-[70%] md:w-[50%] xl:w-[40%] h-[80vh] bg-white  rounded-2xl overflow-hidden" style={{display:'block'}}>
         <h1 className="h-[10%] text-center p-2 text-[30px] border-b-2 ">Address Information</h1>
         <div className="absolute top-[11%] left-[15%] simindexdiv w-[70%]  ">
           <input className="w-[100%] h-[40px] px-4 focus:outline-none rounded-lg "  type="text" placeholder="Search for a location..." value={searchQuery} onChange={handleSearchChange}
@@ -192,6 +193,7 @@ const MapComponent = () => {
             <ZoomHandler />
           </MapContainer>
       </div>
+    </div>
   );
 };
 
