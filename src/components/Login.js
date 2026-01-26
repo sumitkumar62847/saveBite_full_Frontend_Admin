@@ -27,11 +27,9 @@ function Login(){
             dispatch(createUser(user));
             setIsOpt(true);  
         }
-        console.log(user);
     }
     function handleVerification(e){
         e.preventDefault();
-        console.log(user);
         if(!e.target.checkValidity()){
             alert('please fill in required fill');
             return;
@@ -43,7 +41,6 @@ function Login(){
         }
     }
     useEffect(()=>{
-        console.log(isRegistered);
         if(isRegistered){
             navigate('/');
         }

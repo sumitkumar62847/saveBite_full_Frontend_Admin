@@ -35,7 +35,6 @@ export const getUser = createAsyncThunk('admin/getUser',
 export const prediction = createAsyncThunk('admin/prediction',
     async (data) => {
         try {
-            console.log(data);
             const response = await axios.post(`${Api}/prediction`,data);
             return response.data;
         } catch (error) {
@@ -121,7 +120,6 @@ const newAdminSlice = createSlice({
                 state.userid = action.payload.userid;
             })
             .addCase(otpVerification.fulfilled, (state,action)=>{
-                console.log(action.payload.stage);
                 localStorage.setItem('jwt_token', action.payload.token);
                 localStorage.setItem('stage', action.payload.stage);
                 state.isRegistered = true;

@@ -102,7 +102,6 @@ const itemDetail = createSlice({
                 state.isLoader = true;
             })
             .addCase(deleteitem.fulfilled,(state,action)=>{
-                // console.log(action.payload)
                 state.isLoader = false;
             })
             .addCase(itemLive.pending,(state)=>{

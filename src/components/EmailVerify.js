@@ -50,7 +50,6 @@ function EmailVerify() {
             alert('please fill correct OTP');
             return;
         }else{
-            // console.log('scwscwc');
             dispatch(emailVerification(emaildata));
         }
     }
@@ -58,7 +57,6 @@ function EmailVerify() {
     function handlechange(e){
         setEmaildata(emaildata.userid = userid);
         setEmaildata({...emaildata,[e.target.name]:e.target.value}); 
-        // console.log(emaildata);
     }
 
   return (

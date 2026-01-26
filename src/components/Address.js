@@ -28,7 +28,6 @@ function Address() {
         userid = localStorage.getItem('idtity');
     }
     useEffect(()=>{
-        console.log('isAddress', isAddress);
         if(isAddress){
             navigate('/');
         }

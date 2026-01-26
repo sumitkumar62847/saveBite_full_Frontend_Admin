@@ -15,7 +15,6 @@ const Api = process.env.REACT_APP_API_URL;
 
 export const getEditItem = createAsyncThunk('itemedit/editItem',
     async (data)=>{
-        console.log(data);
         try{
             const response = await axios.get(`${Api}/getedititem`,{
                 params:{
@@ -30,7 +29,6 @@ export const getEditItem = createAsyncThunk('itemedit/editItem',
 );
 export const UpdataItem = createAsyncThunk('itemedit/edititem',
     async (data) =>{
-        console.log(data);
         try{ 
             const response = await axios.patch(`${Api}/updataitem`,{data});
             return response.data;
@@ -45,7 +43,6 @@ const itemEdit = createSlice({
     initialState: item_details,
     reducers: {
         editItemId:(state,action)=>{
-            console.log(action.payload);
             state.editItemId = action.payload;
         }
     },

@@ -2,7 +2,7 @@ import React from "react";
 import Additem from "./Additem";
 import Iteminfo from "./iteminfo.js";
 
-function Items({ items }) {
+function Items({ items ,ml}) {
   return (
     <div
       className="
@@ -29,15 +29,10 @@ function Items({ items }) {
           </p>
         </div>
       )}
-      {items && items.length > 0 ? (
-          <div className="flex flex-col items-center justify-center py-5">
+        {!ml &&<div className={`${items.length === 0 ? "col-span-full" : ""} flex flex-col items-center justify-center py-5`}>
             <Additem />
-         </div>
-      ) : (
-          <div className="col-span-full flex flex-col items-center justify-center py-5">
-            <Additem />
-          </div>
-      )}
+         </div>}
+      
       
       
     </div>

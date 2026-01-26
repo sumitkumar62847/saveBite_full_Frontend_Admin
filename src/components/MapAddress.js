@@ -20,10 +20,9 @@ async function getAddress(lat, lon,setCurrentLocation) {
         format: "json",
       },
     });
-    console.log(response.data);
     setCurrentLocation(response.data.display_name);
   } catch (error) {
-    console.error("Location Error:", error);
+      console.error("Location Error:", error);
   }
 }
 
@@ -65,7 +64,6 @@ const MapComponent = () => {
       userid = localStorage.getItem('idtity');
   }
   useEffect(()=>{
-    console.log('isAddresses', isAddresses)
       if(isAddresses){
           navigate('/');
       }
@@ -83,13 +81,11 @@ const MapComponent = () => {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
       (location) => {
-        console.log(location);
         setPosition([location.coords.latitude, location.coords.longitude]);
         getAddress(location.coords.latitude, location.coords.longitude,setCurrentLocation);
-        console.log("Location fetched successfully.");
       },
       () => {
-        console.log("Could not fetch location, using default.");
+        alert("Could not fetch location, using default.");
       }
     );
   }, []);

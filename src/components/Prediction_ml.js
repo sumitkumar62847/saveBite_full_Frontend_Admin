@@ -21,7 +21,6 @@ function Prediction() {
     const isLoader = useSelector((state)=> state.admin.isLoader);
     const items = useSelector((state) => state.admin.predictedData);
     const isprediction = useSelector((state) => state.admin.isprediction);
-    console.log(items.items_ml);
     
     const dispatch = useDispatch();
     function ChangeHandler(e){
